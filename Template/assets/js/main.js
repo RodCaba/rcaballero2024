@@ -399,26 +399,37 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		closeBtnInside: true,
 	});
 
-	const form = document.getElementById('contact-form-contact-section');
-	form.addEventListener('submit', async (e) => {
-		e.preventDefault();
-		const formData = $('#contact-form-contact-section').serialize();
-		const url = '/form';
-		const response = await fetch(url, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
-			},
-			body: formData,
+	// Add event listeners to all forms
+	const formIds = [
+		'contact-form-data-eng',
+		'contact-form-web-dev',
+		'contact-form-mobile-dev',
+		'contact-form-iot',
+		'contact-form-contact-section',
+	]
+
+	formIds.forEach((formId) => {
+		const form = document.getElementById(formId);
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const formData = $(`#${formId}`).serialize();
+			const url = '/form';
+			const response = await fetch(url, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+				body: formData,
+			});
+
+			const data = await response.json();
+
+			if (data.success) {
+				$('#message_sent').modal('show');
+				$(`#${formId}`).trigger('reset');
+			} else {
+				$('#message_fail').modal('show');
+			}
 		});
-
-		const data = await response.json();
-
-		if (data.success) {
-			$('#message_sent').modal('show');
-			$('#contact-form').trigger('reset');
-		} else {
-			$('#message_fail').modal('show');
-		}
 	});
 })(jQuery);
