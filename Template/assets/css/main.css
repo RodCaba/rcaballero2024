@@ -3543,4 +3543,16 @@ body.absolute_header .breadcrumb_area {
 	border-radius: 50%;
 }
 
+a.nostyle:link {
+	text-decoration: inherit;
+	color: inherit;
+	cursor: auto;
+}
+
+a.nostyle:visited {
+	text-decoration: inherit;
+	color: inherit;
+	cursor: auto;
+}
+
 /* END: Modal CSS */
