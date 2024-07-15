@@ -49,11 +49,11 @@ app.post('/form', (req, res) => {
     run().then(()=> {
         responseStatus.status = 200;
         console.log(responseStatus);
-        res.redirect('/')
+        res.json({ success: true });
     }).catch(() => {
         responseStatus.status = 400;
         console.log(responseStatus);
-        res.redirect('/')
+        res.json({ success: false });
     })
     
 });

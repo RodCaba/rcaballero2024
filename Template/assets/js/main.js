@@ -392,25 +392,33 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		// Form Validation
 		/* contact form */
 
-		$('#contact-form').validate({
-			rules: {
-				conName: 'required',
-				conEmail: {
-					required: true,
-					email: true,
-				},
-			},
-
-			messages: {
-				conName: 'Enter your name.',
-				conEmail: 'Enter a valid email.',
-			},
-		});
-
 		/* !contact form */
 	});
 
 	$('.nested-popup').magnificPopup({
 		closeBtnInside: true,
+	});
+
+	const form = document.getElementById('contact-form-contact-section');
+	form.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		const formData = $('#contact-form-contact-section').serialize();
+		const url = '/form';
+		const response = await fetch(url, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded',
+			},
+			body: formData,
+		});
+
+		const data = await response.json();
+
+		if (data.success) {
+			$('#message_sent').modal('show');
+			$('#contact-form').trigger('reset');
+		} else {
+			$('#message_fail').modal('show');
+		}
 	});
 })(jQuery);
