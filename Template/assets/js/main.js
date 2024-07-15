@@ -32,20 +32,20 @@ Description: Gerold - Personal Portfolio HTML5 Template
 ****************************************************/
 
 (function ($) {
-	"use strict";
+	'use strict';
 
 	/*------------------------------------------------------
   /  Data js
   /------------------------------------------------------*/
-	$("[data-bg-image]").each(function () {
+	$('[data-bg-image]').each(function () {
 		$(this).css(
-			"background-image",
-			"url(" + $(this).attr("data-bg-image") + ")"
+			'background-image',
+			'url(' + $(this).attr('data-bg-image') + ')'
 		);
 	});
 
-	$("[data-bg-color]").each(function () {
-		$(this).css("background-color", $(this).attr("data-bg-color"));
+	$('[data-bg-color]').each(function () {
+		$(this).css('background-color', $(this).attr('data-bg-color'));
 	});
 
 	$(document).ready(function ($) {
@@ -57,15 +57,15 @@ Description: Gerold - Personal Portfolio HTML5 Template
 			var scroll = $(window).scrollTop();
 
 			if (scroll > 300) {
-				$(".tj-header-area.header-sticky").addClass("sticky");
-				$(".tj-header-area.header-sticky").removeClass("sticky-out");
+				$('.tj-header-area.header-sticky').addClass('sticky');
+				$('.tj-header-area.header-sticky').removeClass('sticky-out');
 			} else if (scroll < lastScrollTop) {
 				if (scroll < 500) {
-					$(".tj-header-area.header-sticky").addClass("sticky-out");
-					$(".tj-header-area.header-sticky").removeClass("sticky");
+					$('.tj-header-area.header-sticky').addClass('sticky-out');
+					$('.tj-header-area.header-sticky').removeClass('sticky');
 				}
 			} else {
-				$(".tj-header-area.header-sticky").removeClass("sticky");
+				$('.tj-header-area.header-sticky').removeClass('sticky');
 			}
 
 			lastScrollTop = scroll;
@@ -74,47 +74,47 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		/*------------------------------------------------------
   	/  Hamburger Menu
   	/------------------------------------------------------*/
-		$(".menu-bar").on("click", function () {
-			$(".menu-bar").toggleClass("menu-bar-toggeled");
-			$(".header-menu").toggleClass("opened");
-			$("body").toggleClass("overflow-hidden");
+		$('.menu-bar').on('click', function () {
+			$('.menu-bar').toggleClass('menu-bar-toggeled');
+			$('.header-menu').toggleClass('opened');
+			$('body').toggleClass('overflow-hidden');
 		});
 
-		$(".header-menu ul li a").on("click", function () {
-			$(".menu-bar").removeClass("menu-bar-toggeled");
-			$(".header-menu").removeClass("opened");
-			$("body").removeClass("overflow-hidden");
+		$('.header-menu ul li a').on('click', function () {
+			$('.menu-bar').removeClass('menu-bar-toggeled');
+			$('.header-menu').removeClass('opened');
+			$('body').removeClass('overflow-hidden');
 		});
 
 		/*------------------------------------------------------
   	/  OnePage Active Class
   	/------------------------------------------------------*/
-		$(".header-menu nav ul").onePageNav({
-			currentClass: "current-menu-ancestor",
+		$('.header-menu nav ul').onePageNav({
+			currentClass: 'current-menu-ancestor',
 			changeHash: false,
-			easing: "swing",
+			easing: 'swing',
 		});
 
 		/*------------------------------------------------------
   	/  Portfolio Filter
   	/------------------------------------------------------*/
-		$(".portfolio-box").imagesLoaded(function () {
-			var $grid = $(".portfolio-box").isotope({
+		$('.portfolio-box').imagesLoaded(function () {
+			var $grid = $('.portfolio-box').isotope({
 				// options
 				masonry: {
-					columnWidth: ".portfolio-box .portfolio-sizer",
-					gutter: ".portfolio-box .gutter-sizer",
+					columnWidth: '.portfolio-box .portfolio-sizer',
+					gutter: '.portfolio-box .gutter-sizer',
 				},
-				itemSelector: ".portfolio-box .portfolio-item",
+				itemSelector: '.portfolio-box .portfolio-item',
 				percentPosition: true,
 			});
 
 			// filter items on button click
-			$(".filter-button-group").on("click", "button", function () {
-				$(".filter-button-group button").removeClass("active");
-				$(this).addClass("active");
+			$('.filter-button-group').on('click', 'button', function () {
+				$('.filter-button-group button').removeClass('active');
+				$(this).addClass('active');
 
-				var filterValue = $(this).attr("data-filter");
+				var filterValue = $(this).attr('data-filter');
 				$grid.isotope({ filter: filterValue });
 			});
 		});
@@ -122,7 +122,7 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		/*------------------------------------------------------
   	/  Portfolio Gallery Carousel
   	/------------------------------------------------------*/
-		$(".portfolio_gallery.owl-carousel").owlCarousel({
+		$('.portfolio_gallery.owl-carousel').owlCarousel({
 			items: 2,
 			loop: true,
 			lazyLoad: true,
@@ -156,7 +156,7 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		/*------------------------------------------------------
   	/ Testimonial Carousel
   	/------------------------------------------------------*/
-		$(".testimonial-carousel.owl-carousel").owlCarousel({
+		$('.testimonial-carousel.owl-carousel').owlCarousel({
 			loop: true,
 			margin: 30,
 			nav: false,
@@ -181,7 +181,7 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		/*------------------------------------------------------
   	/ Post Gallery Carousel
   	/------------------------------------------------------*/
-		$(".tj-post__gallery.owl-carousel").owlCarousel({
+		$('.tj-post__gallery.owl-carousel').owlCarousel({
 			items: 1,
 			loop: true,
 			margin: 30,
@@ -198,8 +198,8 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		/*------------------------------------------------------
   	/ Brand Slider
   	/------------------------------------------------------*/
-		if ($(".brand-slider").length > 0) {
-			var brand = new Swiper(".brand-slider", {
+		if ($('.brand-slider').length > 0) {
+			var brand = new Swiper('.brand-slider', {
 				slidesPerView: 6,
 				spaceBetween: 30,
 				loop: false,
@@ -229,14 +229,14 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		/*------------------------------------------------------
   	/  Nice Select
   	/------------------------------------------------------*/
-		$("select").niceSelect();
+		$('select').niceSelect();
 
 		/*------------------------------------------------------
   	/  ALL Popup
   	/------------------------------------------------------*/
-		if ($(".popup_video").length > 0) {
+		if ($('.popup_video').length > 0) {
 			$(`.popup_video`).lightcase({
-				transition: "elastic",
+				transition: 'elastic',
 				showSequenceInfo: false,
 				slideshow: false,
 				swipe: true,
@@ -246,26 +246,26 @@ Description: Gerold - Personal Portfolio HTML5 Template
 			});
 		}
 
-		$(".modal-popup").magnificPopup({
-			type: "inline",
+		$('.modal-popup').magnificPopup({
+			type: 'inline',
 			fixedContentPos: false,
 			fixedBgPos: true,
-			overflowY: "auto",
+			overflowY: 'auto',
 			closeBtnInside: true,
 			preloader: false,
 			midClick: true,
 			removalDelay: 300,
-			mainClass: "popup-mfp",
+			mainClass: 'popup-mfp',
 		});
 	});
 
-	$(window).on("load", function () {
+	$(window).on('load', function () {
 		/*------------------------------------------------------
   	/  WoW Js
   	/------------------------------------------------------*/
 		var wow = new WOW({
-			boxClass: "wow", // default
-			animateClass: "animated", // default
+			boxClass: 'wow', // default
+			animateClass: 'animated', // default
 			offset: 100, // default
 			mobile: true, // default
 			live: true, // default
@@ -275,17 +275,17 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		/*------------------------------------------------------
   	/  Preloader
   	/------------------------------------------------------*/
-		const svg = document.getElementById("preloaderSvg");
+		const svg = document.getElementById('preloaderSvg');
 		const svgText = document.querySelector(
-			".hero-section .intro_text svg text"
+			'.hero-section .intro_text svg text'
 		);
 		const tl = gsap.timeline({
 			onComplete: startStrokeAnimation,
 		});
-		const curve = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
-		const flat = "M0 2S175 1 500 1s500 1 500 1V0H0Z";
+		const curve = 'M0 502S175 272 500 272s500 230 500 230V0H0Z';
+		const flat = 'M0 2S175 1 500 1s500 1 500 1V0H0Z';
 
-		tl.to(".preloader-heading .load-text , .preloader-heading .cont", {
+		tl.to('.preloader-heading .load-text , .preloader-heading .cont', {
 			delay: 1.5,
 			y: -100,
 			opacity: 0,
@@ -293,39 +293,39 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		tl.to(svg, {
 			duration: 0.5,
 			attr: { d: curve },
-			ease: "power2.easeIn",
+			ease: 'power2.easeIn',
 		}).to(svg, {
 			duration: 0.5,
 			attr: { d: flat },
-			ease: "power2.easeOut",
+			ease: 'power2.easeOut',
 		});
-		tl.to(".preloader", {
+		tl.to('.preloader', {
 			y: -1500,
 		});
-		tl.to(".preloader", {
+		tl.to('.preloader', {
 			zIndex: -1,
-			display: "none",
+			display: 'none',
 		});
 
 		function startStrokeAnimation() {
 			// Add a class or directly apply styles to trigger the stroke animation
-			svgText.classList.add("animate-stroke");
+			svgText.classList.add('animate-stroke');
 		}
 
 		/*------------------------------------------------------
   	/  Services Hover BG
   	/------------------------------------------------------*/
 		function service_animation() {
-			var active_bg = $(".services-widget .active-bg");
-			var element = $(".services-widget .current");
-			$(".services-widget .service-item").on("mouseenter", function () {
+			var active_bg = $('.services-widget .active-bg');
+			var element = $('.services-widget .current');
+			$('.services-widget .service-item').on('mouseenter', function () {
 				var e = $(this);
 				activeService(active_bg, e);
 			});
-			$(".services-widget").on("mouseleave", function () {
-				element = $(".services-widget .current");
+			$('.services-widget').on('mouseleave', function () {
+				element = $('.services-widget .current');
 				activeService(active_bg, element);
-				element.closest(".service-item").siblings().removeClass("mleave");
+				element.closest('.service-item').siblings().removeClass('mleave');
 			});
 			activeService(active_bg, element);
 		}
@@ -337,24 +337,24 @@ Description: Gerold - Personal Portfolio HTML5 Template
 			}
 			var topOff = e.offset().top;
 			var height = e.outerHeight();
-			var menuTop = $(".services-widget").offset().top;
-			e.closest(".service-item").removeClass("mleave");
-			e.closest(".service-item").siblings().addClass("mleave");
-			active_bg.css({ top: topOff - menuTop + "px", height: height + "px" });
+			var menuTop = $('.services-widget').offset().top;
+			e.closest('.service-item').removeClass('mleave');
+			e.closest('.service-item').siblings().addClass('mleave');
+			active_bg.css({ top: topOff - menuTop + 'px', height: height + 'px' });
 		}
 
-		$(".services-widget .service-item").on("click", function () {
-			$(".services-widget .service-item").removeClass("current");
-			$(this).addClass("current");
+		$('.services-widget .service-item').on('click', function () {
+			$('.services-widget .service-item').removeClass('current');
+			$(this).addClass('current');
 		});
 
 		/*------------------------------------------------------
   	/  Portfolio Filter BG Color
   	/------------------------------------------------------*/
 		function filter_animation() {
-			var active_bg = $(".portfolio-filter .button-group .active-bg");
-			var element = $(".portfolio-filter .button-group .active");
-			$(".portfolio-filter .button-group button").on("click", function () {
+			var active_bg = $('.portfolio-filter .button-group .active-bg');
+			var element = $('.portfolio-filter .button-group .active');
+			$('.portfolio-filter .button-group button').on('click', function () {
 				var e = $(this);
 				activeFilterBtn(active_bg, e);
 			});
@@ -368,22 +368,22 @@ Description: Gerold - Personal Portfolio HTML5 Template
 			}
 			var leftOff = e.offset().left;
 			var width = e.outerWidth();
-			var menuLeft = $(".portfolio-filter .button-group").offset().left;
-			e.siblings().removeClass("active");
-			e.closest("button")
+			var menuLeft = $('.portfolio-filter .button-group').offset().left;
+			e.siblings().removeClass('active');
+			e.closest('button')
 				.siblings()
-				.addClass(".portfolio-filter .button-group");
-			active_bg.css({ left: leftOff - menuLeft + "px", width: width + "px" });
+				.addClass('.portfolio-filter .button-group');
+			active_bg.css({ left: leftOff - menuLeft + 'px', width: width + 'px' });
 		}
 
 		/*------------------------------------------------------
   	/  Funfact
   	/------------------------------------------------------*/
-		if ($(".odometer").length > 0) {
-			$(".odometer").appear(function () {
-				var odo = $(".odometer");
+		if ($('.odometer').length > 0) {
+			$('.odometer').appear(function () {
+				var odo = $('.odometer');
 				odo.each(function () {
-					var countNumber = $(this).attr("data-count");
+					var countNumber = $(this).attr('data-count');
 					$(this).html(countNumber);
 				});
 			});
@@ -391,10 +391,10 @@ Description: Gerold - Personal Portfolio HTML5 Template
 
 		// Form Validation
 		/* contact form */
-		if ($("#contact-form").length > 0) {
-			$("#contact-form").validate({
+
+			$('#contact-form').validate({
 				rules: {
-					conName: "required",
+					conName: 'required',
 					conEmail: {
 						required: true,
 						email: true,
@@ -402,28 +402,11 @@ Description: Gerold - Personal Portfolio HTML5 Template
 				},
 
 				messages: {
-					conName: "Enter your name.",
-					conEmail: "Enter a valid email.",
-				},
-				submitHandler: function (form) {
-					// start ajax request
-					$.ajax({
-						type: "POST",
-						url: "assets/mail/contact-form.php",
-						data: $("#contact-form").serialize(),
-						cache: false,
-						success: function (data) {
-							if (data == "Y") {
-								$("#message_sent").modal("show");
-								$("#contact-form").trigger("reset");
-							} else {
-								$("#message_fail").modal("show");
-							}
-						},
-					});
+					conName: 'Enter your name.',
+					conEmail: 'Enter a valid email.',
 				},
 			});
-		}
+	
 		/* !contact form */
 	});
 })(jQuery);
